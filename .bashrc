@@ -230,12 +230,15 @@ alias .......='cd ../../../../../..'
 alias ls='ls -hF --color=tty'                 # classify files in colour
 
 alias agrep='find . -type f -print0 | xargs -0 grep --color=always -n -i '
-alias fgrep='find . -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\|cshtml\)" -type f -print0 | xargs -0 grep --color=always -n -i '
+alias fgrep='find . -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\|cshtml\|html\)" -type f -print0 | xargs -0 grep --color=always -n -i '
 alias vbgrep='find . -regex ".*\.vb" -type f -print0 | xargs -0 grep -n -i '
 alias csgrep='find . -regex ".*\.cs" -type f -print0 | xargs -0 grep -n -i '
 alias jsgrep='find . -regex ".*\.js" -type f -print0 | xargs -0 grep -n -i '
 alias sqlgrep='find . -regex ".*\.sql" -type f -print0 | xargs -0 grep -n -i '
 
+alias ser='cd /cygdrive/c/repos/stash/SER'
+alias lib='cd /cygdrive/c/repos/stash/LIB'
+alias repos='cd /cygdrive/c/repos'
 alias tz='cd /cygdrive/c/TuneZone'
 alias Dev='cd /cygdrive/c/Dev'
 alias PP='cd /cygdrive/c/Dev/Dev.PP'
@@ -245,6 +248,7 @@ alias whereis='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|asc
 alias afilename='find /cygdrive/c/Dev/Dev.PP -type f | sed -r 's_.*/__' | grep -i '
 alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
 
+alias open='cmd /C'
 alias reload='. ~/.bashrc'
 
 
