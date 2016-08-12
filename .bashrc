@@ -155,6 +155,7 @@ alias repos='cd /cygdrive/c/repos'
 alias tz='cd /cygdrive/c/TuneZone'
 alias Dev='cd /cygdrive/c/Dev'
 alias PP='cd /cygdrive/c/Dev/Dev.PP'
+alias sql='cd /cygdrive/d/Dev/SQL'
 
 alias filename='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | sed -r 's_.*/__' | grep -i '
 alias whereis='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | grep -i '
@@ -169,6 +170,16 @@ alias reload='. ~/.bashrc'
 #=============================================================================
 # Functions:
 # ----------
+
+#
+# sgrep
+#
+# Find which services contain a given string
+#
+sgrep()
+{
+	fgrep --color=never -l $1 | sed -r 's/.*TravelRepublic\.(.*)\.Service(\.Tests)?.*/\1\2/' | sed -r 's/.*TravelRepublic\.([^\/]*).*/\1/' | sort | uniq
+}
 
 #
 # wpath
@@ -223,3 +234,40 @@ wwd()
 }
 
 
+#
+# getconfig
+#
+# Finds app settings and connection strings
+#
+getconfig ()
+{
+ find . -maxdepth 2 -type f -regex ".*/\(Web\|app\)\.config" |
+ xargs grep "add \(name\|key\)=" --color=never |
+ sed -r 's/.*add (key|name)="([^"]+)".*/\1: \2/' |
+ sed -r 's/key(.*)/App Setting\1/' |
+ sed -r 's/name(.*)/Connection String\1/'
+}
+
+
+#
+# getconfigusages
+#
+# Finds unused app settings and connection strings
+#
+getconfigusages ()
+{
+ configs=$(find . -maxdepth 2 -type f -regex ".*/\(Web\|app\)\.config" |
+ xargs grep "add \(name\|key\)=" --color=never |
+ sed -r 's/.*add (key|name)="([^"]+)".*/\2/')
+ 
+ configs=$(echo $configs | sed 's/ /\\|/g')
+ configs=$(echo "("$configs")")
+ configs=$(echo $configs | sed 's/()//')
+ 
+ if [ $configs ]
+ then
+  csgrep $configs --color=always
+ else
+  echo "No config settings - need to be in a service directory or service project directory"
+ fi
+}
