@@ -119,52 +119,13 @@
 # sed 'x,yd' filename.txt    Output filename.txt deleting lines x to y
 #
 
+
 #=============================================================================
 # Settings:
 # ---------
 
 # ctrl-space list all possible completions
 bind '"\C- ":menu-complete'
-
-#=============================================================================
-# Aliases:
-# --------
-
-alias grep='grep --color=always '
-
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
-
-alias ls='ls -hF --color=tty'                 # classify files in colour
-
-alias agrep='find . -type f -print0 | xargs -0 grep --color=always -n -i '
-alias fgrep='find . -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\|cshtml\|html\)" -type f -print0 | xargs -0 grep --color=always -n -i '
-alias vbgrep='find . -regex ".*\.vb" -type f -print0 | xargs -0 grep -n -i '
-alias csgrep='find . -regex ".*\.cs" -type f -print0 | xargs -0 grep -n -i '
-alias jsgrep='find . -regex ".*\.js" -type f -print0 | xargs -0 grep -n -i '
-alias sqlgrep='find . -regex ".*\.sql" -type f -print0 | xargs -0 grep -n -i '
-
-alias ser='cd /cygdrive/c/repos/stash/SER'
-alias lib='cd /cygdrive/c/repos/stash/LIB'
-alias repos='cd /cygdrive/c/repos'
-alias tz='cd /cygdrive/c/TuneZone'
-alias Dev='cd /cygdrive/c/Dev'
-alias PP='cd /cygdrive/c/Dev/Dev.PP'
-alias sql='cd /cygdrive/d/Dev/SQL'
-
-alias filename='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | sed -r 's_.*/__' | grep -i '
-alias whereis='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | grep -i '
-alias afilename='find /cygdrive/c/Dev/Dev.PP -type f | sed -r 's_.*/__' | grep -i '
-alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
-
-alias open='cmd /C'
-alias reload='. ~/.bashrc'
-
 
 
 #=============================================================================
@@ -271,3 +232,60 @@ getconfigusages ()
   echo "No config settings - need to be in a service directory or service project directory"
  fi
 }
+
+
+#
+# open
+#
+# 0 args - opens Windows Explorer at the given location
+# >0 args - runs the command from cmd
+#
+open ()
+{
+    if [ $1 ]
+    then
+       cmd /C $1
+    else
+	    explorer .
+    fi
+}
+
+
+#=============================================================================
+# Aliases:
+# --------
+
+alias grep='grep --color=always '
+
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+
+alias ls='ls -hF --color=tty'                 # classify files in colour
+
+alias agrep='find . -type f -print0 | xargs -0 grep --color=always -n -i '
+alias fgrep='find . -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\|cshtml\|html\)" -type f -print0 | xargs -0 grep --color=always -n -i '
+alias vbgrep='find . -regex ".*\.vb" -type f -print0 | xargs -0 grep -n -i '
+alias csgrep='find . -regex ".*\.cs" -type f -print0 | xargs -0 grep -n -i '
+alias jsgrep='find . -regex ".*\.js" -type f -print0 | xargs -0 grep -n -i '
+alias sqlgrep='find . -regex ".*\.sql" -type f -print0 | xargs -0 grep -n -i '
+alias configgrep='find . -regex ".*\.config" -type f -print0 | xargs -0 grep -n -i '
+
+alias ser='cd /cygdrive/c/repos/stash/SER'
+alias lib='cd /cygdrive/c/repos/stash/LIB'
+alias repos='cd /cygdrive/c/repos'
+alias Dev='cd /cygdrive/c/Dev'
+alias PP='cd /cygdrive/c/Dev/Dev.PP'
+alias sql='cd /cygdrive/d/Dev/SQL'
+
+alias filename='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | sed -r 's_.*/__' | grep -i '
+alias whereis='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | grep -i '
+alias afilename='find /cygdrive/c/Dev/Dev.PP -type f | sed -r 's_.*/__' | grep -i '
+alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
+
+alias reload='. ~/.bashrc'
+
