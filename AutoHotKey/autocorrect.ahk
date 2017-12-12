@@ -106,6 +106,10 @@ Return
 ;------------------------------------------------------------------------------
 
 :*:selecet::select
+:*:autocompelter::autocompleter
+:*:Autocompelter::Autocompleter
+:*:ssf::SELECT TOP 1000{Enter}*{Enter}{Up}    {Home}{Down}FROM{Enter}{Enter}{Up}    {Home}{Down}--WHERE{Enter}    {Home}{Up}{Up}{Right}{Right}{Right}{Right}    
+:*:-80-::--------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
 ;  Capitalise dates
