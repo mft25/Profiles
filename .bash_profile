@@ -51,30 +51,8 @@ fi
 # My Cygwin prompt
 PS1='\e[31m[\t]\e[32m\w\e[0m\$ '
 
-# Move to my Dev folder
-cd /cygdrive/c/Dev/TuneZone
+# Move to most commonly used directory
+cd /cygdrive/c/Dev/travelrepublic.services/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Set tab size to 4
+tabs 4

@@ -143,6 +143,17 @@ sgrep()
 }
 
 #
+# bpath
+#
+# Convert a Windows file path to UNIX format.
+#
+bpath()
+{
+	bpath=$(echo $1 | sed -r 's_\\_/_'g)
+	echo $bpath
+}
+
+#
 # wpath
 #
 # Get a file path converted from UNIX to Windows format
@@ -244,9 +255,26 @@ open ()
 {
     if [ $1 ]
     then
-       cmd /C $1
+        cmd /C $1
     else
 	    explorer .
+    fi
+}
+
+
+#
+# weather
+#
+# 0 args - check the weather in paris
+# 1 arg - check the weather in the specified location
+#
+weather ()
+{
+    if [ $1 ]
+    then
+        curl wttr.in/$1
+    else
+	    curl wttr.in/Paris
     fi
 }
 
@@ -264,28 +292,36 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
 
 alias ls='ls -hF --color=tty'                 # classify files in colour
 
+alias np='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'
+
 alias agrep='find . -type f -print0 | xargs -0 grep --color=always -n -i '
-alias fgrep='find . -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\|cshtml\|html\)" -type f -print0 | xargs -0 grep --color=always -n -i '
+alias fgrep='find . -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|resx\|sql\|config\|cshtml\|html\)" -type f -print0 | xargs -0 grep --color=always -n -i '
 alias vbgrep='find . -regex ".*\.vb" -type f -print0 | xargs -0 grep -n -i '
 alias csgrep='find . -regex ".*\.cs" -type f -print0 | xargs -0 grep -n -i '
 alias jsgrep='find . -regex ".*\.js" -type f -print0 | xargs -0 grep -n -i '
 alias sqlgrep='find . -regex ".*\.sql" -type f -print0 | xargs -0 grep -n -i '
 alias configgrep='find . -regex ".*\.config" -type f -print0 | xargs -0 grep -n -i '
 
-alias ser='cd /cygdrive/c/repos/stash/SER'
-alias lib='cd /cygdrive/c/repos/stash/LIB'
-alias repos='cd /cygdrive/c/repos'
-alias Dev='cd /cygdrive/c/Dev'
-alias PP='cd /cygdrive/c/Dev/Dev.PP'
-alias sql='cd /cygdrive/d/Dev/SQL'
+alias ahk='cd /cygdrive/c/Users/mturner/Documents/BashProfilesTmp/AutoHotKey'
+alias dev='cd /cygdrive/c/Dev'
+alias ser='cd /cygdrive/c/Dev/travelrepublic.services'
+alias lib='cd /cygdrive/c/Dev/LIB'
+alias rollouts='cd /cygdrive/c/Dev/DB/Rollouts/Rollouts'
+alias sql='cd /cygdrive/c/Dev/SQL/Scripts'
+alias sqlhistory='cd /cygdrive/c/Dev/SQL/History/Execution'
+alias tools='cd /cygdrive/c/dev/ApiTeam/tools/ServiceVersions/'
 
-alias filename='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | sed -r 's_.*/__' | grep -i '
-alias whereis='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | grep -i '
-alias afilename='find /cygdrive/c/Dev/Dev.PP -type f | sed -r 's_.*/__' | grep -i '
-alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
+#alias filename='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | sed -r 's_.*/__' | grep -i '
+#alias whereis='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | grep -i '
+#alias afilename='find /cygdrive/c/Dev/Dev.PP -type f | sed -r 's_.*/__' | grep -i '
+#alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
+
+alias svcdiff='python /cygdrive/c/dev/ApiTeam/tools/ServiceVersions/analyse.py'
 
 alias reload='. ~/.bashrc'
+
 
