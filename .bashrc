@@ -119,7 +119,6 @@
 # sed 'x,yd' filename.txt    Output filename.txt deleting lines x to y
 #
 
-
 #=============================================================================
 # Settings:
 # ---------
@@ -133,13 +132,14 @@ bind '"\C- ":menu-complete'
 # ----------
 
 #
-# sgrep
+# launch
 #
-# Find which services contain a given string
-#
-sgrep()
+launch()
 {
-	fgrep --color=never -l $1 | sed -r 's/.*TravelRepublic\.(.*)\.Service(\.Tests)?.*/\1\2/' | sed -r 's/.*TravelRepublic\.([^\/]*).*/\1/' | sort | uniq
+	if [[ $1 = 'metro' ]]; then
+		cd /cygdrive/c/Dev/metro/metro
+		npm start
+	fi
 }
 
 #
@@ -205,7 +205,6 @@ wwd()
 	wpath "$dir"
 }
 
-
 #
 # getconfig
 #
@@ -219,7 +218,6 @@ getconfig ()
  sed -r 's/key(.*)/App Setting\1/' |
  sed -r 's/name(.*)/Connection String\1/'
 }
-
 
 #
 # getconfigusages
@@ -244,7 +242,6 @@ getconfigusages ()
  fi
 }
 
-
 #
 # open
 #
@@ -260,7 +257,6 @@ open ()
 	    explorer .
     fi
 }
-
 
 #
 # weather
@@ -285,6 +281,7 @@ weather ()
 
 alias grep='grep --color=always '
 
+alias reload='. ~/.bashrc'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -299,29 +296,29 @@ alias ls='ls -hF --color=tty'                 # classify files in colour
 alias np='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'
 
 alias agrep='find . -type f -print0 | xargs -0 grep --color=always -n -i '
-alias fgrep='find . -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|resx\|sql\|config\|cshtml\|html\)" -type f -print0 | xargs -0 grep --color=always -n -i '
+alias fgrep='find . -regex ".*\.\(vb\|cs\|asax\|aspx\|ashx\|ascx\|resx\|sql\|config\|cshtml\|html\|js\|py\)" -type f -print0 | xargs -0 grep --color=always -n -i '
 alias vbgrep='find . -regex ".*\.vb" -type f -print0 | xargs -0 grep -n -i '
 alias csgrep='find . -regex ".*\.cs" -type f -print0 | xargs -0 grep -n -i '
 alias jsgrep='find . -regex ".*\.js" -type f -print0 | xargs -0 grep -n -i '
 alias sqlgrep='find . -regex ".*\.sql" -type f -print0 | xargs -0 grep -n -i '
 alias configgrep='find . -regex ".*\.config" -type f -print0 | xargs -0 grep -n -i '
 
-alias ahk='cd /cygdrive/c/Users/mturner/Documents/BashProfilesTmp/AutoHotKey'
 alias dev='cd /cygdrive/c/Dev'
-alias ser='cd /cygdrive/c/Dev/travelrepublic.services'
-alias lib='cd /cygdrive/c/Dev/LIB'
-alias rollouts='cd /cygdrive/c/Dev/DB/Rollouts/Rollouts'
-alias sql='cd /cygdrive/c/Dev/SQL/Scripts'
+
+alias ahk='cd ~/Profiles/AutoHotKey'
+
+# Need to install and configure SSMSBoost
 alias sqlhistory='cd /cygdrive/c/Dev/SQL/History/Execution'
-alias tools='cd /cygdrive/c/dev/ApiTeam/tools/ServiceVersions/'
+
+alias metro='cd /cygdrive/c/Dev/metro/'
+alias metrow='cd /cygdrive/c/Dev/metro/Metro.Website/'
+alias metrowa='cd /cygdrive/c/Dev/metro/Metro.Website/src/app/'
+alias metroa='cd /cygdrive/c/Dev/metro/Metro.Service/'
+alias metroas='cd /cygdrive/c/Dev/metro/Metro.Service/Metro.Service/'
 
 #alias filename='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | sed -r 's_.*/__' | grep -i '
 #alias whereis='find /cygdrive/c/Dev/Dev.PP -regex ".*\.\(vb\|cs\|aspx\|ashx\|ascx\|js\|resx\|sql\|config\)" -type f | grep -i '
 #alias afilename='find /cygdrive/c/Dev/Dev.PP -type f | sed -r 's_.*/__' | grep -i '
 #alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
-
-alias svcdiff='python /cygdrive/c/dev/ApiTeam/tools/ServiceVersions/analyse.py'
-
-alias reload='. ~/.bashrc'
 
 
