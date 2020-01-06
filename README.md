@@ -28,3 +28,4 @@ nano `/etc/nsswitch.conf`
 ```db_home:  /home/%U/Profiles```
 
 Run dos2unix on files if necessary : https://stackoverflow.com/questions/11616835/r-command-not-found-bashrc-bash-profile
+

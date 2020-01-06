@@ -320,7 +320,7 @@ alias configgrep='find . -regex ".*\.config" -type f -print0 | xargs -0 grep -n 
 
 alias dev='cd /cygdrive/c/Dev'
 
-alias ahk='cd ~/Profiles/AutoHotKey'
+alias ahk='cd ~/AutoHotKey'
 
 # Need to install and configure SSMSBoost
 alias sqlhistory='cd /cygdrive/c/Dev/SQL/History/Execution'
