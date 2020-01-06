@@ -158,8 +158,6 @@ launch()
 }
 
 #
-# bpath
-#
 # Convert a Windows file path to UNIX format.
 #
 bpath()
@@ -168,8 +166,6 @@ bpath()
 	echo $bpath
 }
 
-#
-# wpath
 #
 # Get a file path converted from UNIX to Windows format
 #
@@ -184,8 +180,6 @@ wpath()
 	echo $wpath
 }
 
-#
-# wpathrel
 #
 # Get a file path converted from UNIX to Windows format of the specified file found in the current directory.
 #
