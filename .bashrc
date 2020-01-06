@@ -279,7 +279,7 @@ weather ()
     then
         curl wttr.in/$1
     else
-	    curl wttr.in/Paris
+	    curl wttr.in/Oxford
     fi
 }
 
