@@ -48,11 +48,4 @@ fi
 # The default Cygwin prompt
 #PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$'
 
-# My Cygwin prompt
-PS1='\e[31m[\t]\e[32m\w\e[0m\$ '
-
-# Move to most commonly used directory
-cd /cygdrive/c/Dev/travelrepublic.services/
-
-# Set tab size to 4
-tabs 4
+bash_profile

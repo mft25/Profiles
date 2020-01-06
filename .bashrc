@@ -128,12 +128,27 @@ bind '"\C- ":menu-complete'
 
 
 #=============================================================================
+# Bash profile aliases:
+# ---------------------
+alias bp_default_directory='cd /cygdrive/c/Dev/'
+alias bp_tab_width='tabs 4'
+alias bp_prompt="PS1='\e[31m[\t]\e[32m\w\e[0m\$ '"
+
+
+#=============================================================================
 # Functions:
 # ----------
 
 #
-# launch
+# Move all configuration from .bash_profile into .bashrc
 #
+bash_profile()
+{
+	bp_default_directory
+	bp_tab_width
+	bp_prompt
+}
+
 launch()
 {
 	if [[ $1 = 'metro' ]]; then
