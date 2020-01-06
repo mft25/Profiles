@@ -288,9 +288,17 @@ weather ()
 # Aliases:
 # --------
 
-alias grep='grep --color=always '
+# Depends on the installation folder for Notepad++
+alias np='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'
+alias np='"/cygdrive/c/Program Files/Notepad++/notepad++.exe"'
+alias npp="np"
+
+alias hosts="np /cygdrive/c/Windows/System32/drivers/etc/hosts"
 
 alias reload='. ~/.bashrc'
+alias bashrc='np C:/cygwin64/$HOME/.bashrc'
+
+alias grep='grep --color=always '
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -301,8 +309,6 @@ alias .......='cd ../../../../../..'
 alias ........='cd ../../../../../../..'
 
 alias ls='ls -hF --color=tty'                 # classify files in colour
-
-alias np='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'
 
 alias agrep='find . -type f -print0 | xargs -0 grep --color=always -n -i '
 alias fgrep='find . -regex ".*\.\(vb\|cs\|asax\|aspx\|ashx\|ascx\|resx\|sql\|config\|cshtml\|html\|js\|py\)" -type f -print0 | xargs -0 grep --color=always -n -i '
