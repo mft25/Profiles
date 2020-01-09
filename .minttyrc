@@ -1,0 +1,4 @@
+MiddleClickAction=void
+RightClickAction=paste
+Columns=240
+Rows=60
