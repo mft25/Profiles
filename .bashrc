@@ -289,11 +289,16 @@ weather ()
 # --------
 
 # Depends on the installation folder for Notepad++
-alias np='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'
-alias np='"/cygdrive/c/Program Files/Notepad++/notepad++.exe"'
+alias np='cygstart --hide /cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'
+alias np='cygstart --hide "/cygdrive/c/Program Files/Notepad++/notepad++.exe"'
 alias npp="np"
+# Ideally this would kill existing instance of N++ to avoid having to do that manually
+# https://helpdeskgeek.com/how-to/run-notepad-as-administrator-to-avoid-access-is-denied/
+alias npadmin='cygstart --hide /cygdrive/c/Shortcuts/notepad++admin.exe.lnk'
 
-alias hosts="np /cygdrive/c/Windows/System32/drivers/etc/hosts"
+# Not quite sure why the second one works but the first one doesn't...
+alias hosts="npadmin /cygdrive/c/Windows/System32/drivers/etc/hosts"
+alias hosts="npadmin /Windows/System32/drivers/etc/hosts"
 
 alias reload='. ~/.bashrc'
 alias bashrc='np C:/cygwin64/$HOME/.bashrc'
@@ -325,6 +330,7 @@ alias ahk='cd ~/AutoHotKey'
 # Need to install and configure SSMSBoost
 alias sqlhistory='cd /cygdrive/c/Dev/SQL/History/Execution'
 
+### METRO specific
 alias metro='cd /cygdrive/c/Dev/metro/'
 alias metrow='cd /cygdrive/c/Dev/metro/Metro.Website/'
 alias metrowa='cd /cygdrive/c/Dev/metro/Metro.Website/src/app/'
