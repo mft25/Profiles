@@ -133,6 +133,7 @@ bind '"\C- ":menu-complete'
 alias bp_default_directory='cd /cygdrive/c/Dev/'
 alias bp_tab_width='tabs 4'
 alias bp_prompt="PS1='\e[31m[\t]\e[32m\w\e[0m\$ '"
+alias ahk_autocorrect="cygstart ~/AutoHotKey/autocorrect.ahk"
 
 
 #=============================================================================
@@ -147,6 +148,7 @@ bash_profile()
 	bp_default_directory
 	bp_tab_width
 	bp_prompt
+	ahk_autocorrect
 }
 
 launch()
@@ -160,10 +162,24 @@ launch()
 #
 # Convert a Windows file path to UNIX format.
 #
+# Samples:
+#     bpath "C:\Program Files (x86)"
+#     bpath "C:\Dev" cd
+#
 bpath()
 {
+	# Convert backslashes to forward slashes
 	bpath=$(echo $1 | sed -r 's_\\_/_'g)
+	
+	# Convert C: at the start of paths to /cygdrive/c
+	bpath=$(echo $bpath | sed -r 's_^C:_/cygdrive/c_')
+
 	echo $bpath
+
+	if [ $2 ]
+	then
+		$2 $bpath
+	fi
 }
 
 #
