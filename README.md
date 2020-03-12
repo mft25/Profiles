@@ -2,23 +2,71 @@
 
 Sync profiles across all my workstations
 
-## Cygwin
 
-### Installation suggestions
+## Installs
+
+#### Dev Tools
+
+* Notepad++
+	* Compare
+	* JSTool
+	
+* Cygwin (see below)
+
+* AutoHotKey
+
+* Sourcetree
+
+* Visual Studio
+	* ReSharper
+	  * Import preferred keyboard shortcuts from VisualStudio directory
+	* Productivity Power Tools
+		* NB: Right-click on scrollbar > Scrollbar options > Use map mode for vertical scroll (narrow)
+	* [Microsoft Code Analysis](https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.MicrosoftCodeAnalysis2019) - @@@ decide if this is actually worth having
+	
+* VS Code
+
+* SSMS
+
+  * [Redgate SQL Search](https://www.red-gate.com/dynamic/products/sql-development/sql-search/download)
+  * View > Registered Servers
+
+* Typora
+
+* Postman
+
+* RabbitMQ
+
+	​	
+#### Miscellaneous
+
+* [Free Cam](https://www.freescreenrecording.com/)
+* Paint.NET
+* [FastStone Viewer](https://www.faststone.org/)
+* Slack
+
+
+### Cygwin
+
+#### Installation suggestions
 
 * Editors
-	* Nano
-	* Emacs
-	* Vim
+	* nano
+	* emacs
+	* vim
 * Python
-* Other
-	* Email
-	* dos2unix
+* Web
+	* email
 	* curl
 	* wget
+	* ping
+* Other
+	* dos2unix
+	* grep (if not a default)
+	* sed (if not a default)
 
 
-### Setup
+#### Setup
 
 Load Profiles from Github into {$HOME}\Profiles
 

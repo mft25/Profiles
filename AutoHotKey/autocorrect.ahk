@@ -108,7 +108,9 @@ Return
 :*:selecet::select
 :*:autocompelter::autocompleter
 :*:Autocompelter::Autocompleter
-:*:ssf::SELECT TOP 1000{Enter}*{Enter}{Up}    {Home}{Down}FROM{Enter}{Enter}{Up}    {Home}{Down}--WHERE{Enter}    {Home}{Up}{Up}{Right}{Right}{Right}{Right}    
+:*:ssf::SELECT TOP 1000{Enter}*{Enter}{Up}    {Home}{Down}FROM{Enter}{Enter}--WHERE{Enter}{Enter}{Up}    {Home}{Up}{Up}    {End}
+:*:ssob::SELECT TOP 1000{Enter}*{Enter}{Up}    {Home}{Down}FROM{Enter}{Enter}{Up}    {Home}{Down}--WHERE{Enter}{Enter}{Up}    {Home}{Down}ORDER BY{Enter}{Enter}{Up}    Id DESC{Home}{Up}{Up}{Up}{Up}{End}
+:*:clog::console.log({Right};{Left}{Left}
 :*:-80-::--------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
