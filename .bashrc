@@ -359,3 +359,7 @@ alias metroas='cd /cygdrive/c/Dev/metro/Metro.Service/Metro.Service/'
 #alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
 
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
