@@ -299,6 +299,19 @@ weather ()
     fi
 }
 
+#
+# prepare_nvm
+#
+# This command takes a while to load so better to do it in the background to
+# speed up opening new terminal windows.
+#
+prepare_nvm ()
+{
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
 
 #=============================================================================
 # Aliases:
@@ -359,7 +372,5 @@ alias metroas='cd /cygdrive/c/Dev/metro/Metro.Service/Metro.Service/'
 #alias awhereis='find /cygdrive/c/Dev/Dev.PP -type f | grep -i '
 
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# NVM takes a while to start so comment it out unless needed.
+#prepare_nvm
